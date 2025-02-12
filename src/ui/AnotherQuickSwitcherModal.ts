@@ -250,10 +250,11 @@ export class AnotherQuickSwitcherModal
     let start = performance.now();
     const fileItems: SuggestionItem[] = this.app.vault
       .getFiles()
-      .filter(
+      // i would prefer if it suggested the current file, this is in line with the existing quick switcher
+      /* .filter(
         (x) =>
           x.path !== originFilePath && this.app.metadataCache.getFileCache(x),
-      )
+      ) */
       .map((x) => {
         const cache = this.app.metadataCache.getFileCache(x)!; // already filtered
         return {
