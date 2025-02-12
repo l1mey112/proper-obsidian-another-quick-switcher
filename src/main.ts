@@ -11,6 +11,7 @@ import {
   createDefaultHotkeys,
   createDefaultSearchCommand,
 } from "./settings";
+import { install_mobile_override_shim } from "./mobile_shim";
 
 export default class AnotherQuickSwitcher extends Plugin {
   settings: Settings;
@@ -20,6 +21,8 @@ export default class AnotherQuickSwitcher extends Plugin {
     this.appHelper = new AppHelper(this.app);
     await this.loadSettings();
     this.addSettingTab(new AnotherQuickSwitcherSettingTab(this.app, this));
+
+    install_mobile_override_shim(this.app, this.settings);
 
     if (this.appHelper.isCacheInitialized()) {
       this.reloadCommands();
