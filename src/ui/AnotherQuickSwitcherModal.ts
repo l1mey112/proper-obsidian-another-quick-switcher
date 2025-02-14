@@ -266,7 +266,7 @@ export class AnotherQuickSwitcherModal
                 ...(parseFrontMatterTags(cache.frontmatter) ?? []),
               ])
               // remove tags that start with "task"
-              .filter((x) => !x.startsWith('task'))
+              .filter((x) => !x.startsWith('#task'))
             : [],
           headers: this.command.searchBy.header
             ? (cache.headings ?? []).map((x) => excludeFormat(x.heading))

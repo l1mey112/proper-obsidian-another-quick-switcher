@@ -74,6 +74,25 @@ function matchQuery(
     ];
   }
 
+  // "test query" should matche "query.md #test"
+
+  // always select the first content as part of a tag
+  /* if (searchByTags) {
+    // extract the first word if possible
+    const firstWord = query.split(" ")[0];
+    
+    const tags = item.tags.filter((tag) =>
+      smartIncludes(tag.slice(1), firstWord, isNormalizeAccentsDiacritics),
+    );
+    return [
+      {
+        type: tags.length > 0 ? "tag" : "not found",
+        meta: tags,
+        query,
+      },
+    ];
+  } */
+
   const qs = query.split("/");
   const file = qs.pop()!;
   const dirs = qs;
